@@ -241,16 +241,7 @@ function renderTableView() {
     filtered.forEach(person => {
         const tr = document.createElement('tr');
 
-        // Prenom
-        const tdPrenom = document.createElement('td');
-        tdPrenom.contentEditable = true;
-        tdPrenom.textContent = person.prenom || '';
-        tdPrenom.dataset.personId = person.id;
-        tdPrenom.dataset.field = 'prenom';
-        tdPrenom.addEventListener('blur', handleCellEdit);
-        tr.appendChild(tdPrenom);
-
-        // Nom
+        // Nom (first)
         const tdNom = document.createElement('td');
         tdNom.contentEditable = true;
         tdNom.textContent = person.nom || '';
@@ -258,6 +249,15 @@ function renderTableView() {
         tdNom.dataset.field = 'nom';
         tdNom.addEventListener('blur', handleCellEdit);
         tr.appendChild(tdNom);
+
+        // Prenom (second)
+        const tdPrenom = document.createElement('td');
+        tdPrenom.contentEditable = true;
+        tdPrenom.textContent = person.prenom || '';
+        tdPrenom.dataset.personId = person.id;
+        tdPrenom.dataset.field = 'prenom';
+        tdPrenom.addEventListener('blur', handleCellEdit);
+        tr.appendChild(tdPrenom);
 
         // Email
         const tdEmail = document.createElement('td');
